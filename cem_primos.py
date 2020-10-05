@@ -5,10 +5,6 @@ Faça um programa em python que exiba os 100 primeiros numeros primos
 import os
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)
-
-@app.route('/')
-
 
 def eh_primo(n):
     for i in range(2, n):
@@ -17,16 +13,22 @@ def eh_primo(n):
     return True
 
 
+app = Flask(__name__)
+
+@app.route('/')
+
+
 def show_cem_primos():
     limit = 100
     primos_showed = 0
-    n = 1
+    n = 3
+    primos = '2, '
     while primos_showed < limit:
         if eh_primo(n):
-            print(n,end=", ")
+            primos += n + ', '
             n += 1
             primos_showed += 1
-    return
+    return primos
 
 
 if __name__ == "__main__":
