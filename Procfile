@@ -1,1 +1,1 @@
-web: python ac3.py
+web: python cem_primos.py
